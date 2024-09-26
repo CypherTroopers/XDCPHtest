@@ -1,0 +1,19 @@
+{
+  "name": "xdcph",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@openzeppelin/contracts": "^2.5.1",
+    "dotenv": "^16.4.5",
+    "ethers": "^5.0.0",
+    "solc": "^0.8.27",
+    "web3": "^4.13.0"
+  }
+}

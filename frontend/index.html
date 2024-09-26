@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cypherium to XDC Bridge</title>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+  <script src="main.js" defer></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    input {
+      padding: 10px;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+    .status {
+      margin-top: 10px;
+      color: green;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cypherium to XDC Cross-Chain Bridge</h1>
+
+  <!-- ウォレット接続部分 -->
+  <p id="walletStatus">Status: Not connected</p>
+  <button class="button" onclick="connectWallet()">Connect Wallet</button>
+
+  <!-- CPHロック部分 -->
+  <h2>Lock CPH</h2>
+  <input type="text" id="lockAmount" placeholder="Amount to lock (CPH)">
+  <button class="button" id="lockButton" onclick="lockCPH()">Lock CPH</button>
+  <p id="lockStatus" class="status"></p>
+
+  <!-- wCPHミント部分 -->
+  <h2>Mint wCPH</h2>
+  <button class="button" id="mintButton" onclick="mintwCPH()" disabled>Mint wCPH</button>
+  <p id="mintStatus" class="status"></p>
+
+  <!-- wCPHバーン部分 -->
+  <h2>Burn wCPH</h2>
+  <input type="text" id="burnAmount" placeholder="Amount to burn (wCPH)">
+  <button class="button" id="burnButton" onclick="burnwCPH()">Burn wCPH</button>
+  <p id="burnStatus" class="status"></p>
+
+  <!-- CPHアンロック部分 -->
+  <h2>Unlock CPH</h2>
+  <button class="button" id="unlockButton" onclick="unlockCPH()" disabled>Unlock CPH</button>
+  <p id="unlockStatus" class="status"></p>
+</body>
+</html>
