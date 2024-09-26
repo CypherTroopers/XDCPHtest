@@ -12,7 +12,7 @@ const cypheriumBridgeAddress = '0xB88B548732c2f20D62d66bc164D19a268C94Ad58';
 const wrappedCPHAddress = '0x828149d63658a5eDB8e178b2f00Ba70C79D7e40f';
 const feePercentage = 0.001;
 
-// ウォレット接続関数
+
 async function connectWallet() {
   if (typeof window.ethereum !== 'undefined' && window.ethereum.isMetaMask) {
     try {
