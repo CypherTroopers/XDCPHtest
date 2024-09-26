@@ -8,10 +8,10 @@ const privateKey = '0x';
 
 const recipientAddress = '0x1E363768199697A07Af5B89028554D29c2BDfF84';
 
-(Ether単位で指定)
+
 const amountInEther = '1.0'; // 
 
-（Cypherium RPC）
+
 const provider = new ethers.providers.JsonRpcProvider(RPC_URL);
 
 //
