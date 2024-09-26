@@ -3,7 +3,7 @@ require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 
-// CypheriumとXDCのプロバイダ設定
+
 const cypheriumProvider = new ethers.providers.JsonRpcProvider('http://218.185.241.160:8000');
 
 if (!process.env.PRIVATE_KEY) {
@@ -13,7 +13,7 @@ if (!process.env.PRIVATE_KEY) {
 
 const cypheriumWallet = new ethers.Wallet(process.env.PRIVATE_KEY, cypheriumProvider);
 
-// コントラクトのビルドファイルを読み込む
+
 function getContractBuild(contractName) {
   const buildPath = path.resolve(__dirname, 'build', `${contractName}.json`);
   if (!fs.existsSync(buildPath)) {
@@ -23,31 +23,31 @@ function getContractBuild(contractName) {
   return JSON.parse(contractJson);
 }
 
-// コントラクトのデプロイ
+
 async function deployContract(wallet, contractName) {
   const contractBuild = getContractBuild(contractName);
   const factory = new ethers.ContractFactory(contractBuild.abi, contractBuild.evm.bytecode.object, wallet);
 
   try {
     const contract = await factory.deploy({
-      gasLimit: 5000000,  // ガスリミットの調整 (必要に応じて変更)
+      gasLimit: 300000,  
     });
-    await contract.deployTransaction.wait();  // トランザクションの確定待ち
+    await contract.deployTransaction.wait(); 
 
     console.log(`${contractName} deployed at address: ${contract.address}`);
     return contract.address;
   } catch (error) {
-    console.error(`Failed to deploy ${contractName}:`, error.message);  // エラーメッセージの改善
+    console.error(`Failed to deploy ${contractName}:`, error.message); 
   }
 }
 
-// メイン関数
+
 async function main() {
   try {
-    // CypheriumBridgeのデプロイ
+  
     const cypheriumBridgeTESTAddress = await deployContract(cypheriumWallet, 'CypheriumBridgeTEST');
 
-    // アドレスを保存
+   
     const addresses = {
       CypheriumBridgeTEST: cypheriumBridgeTESTAddress,
     };
