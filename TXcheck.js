@@ -11,7 +11,7 @@ async function getTransactionReceipt() {
     
     const receipt = await web3.eth.getTransactionReceipt(transactionHash);
     
-    // トランザクションのレシートを出力
+   
     if (receipt) {
       console.log('Transaction Receipt:', receipt);
     } else {
