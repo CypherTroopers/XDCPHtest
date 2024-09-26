@@ -85,12 +85,12 @@ async function compileContract(contractName) {
       );
 
       console.log(`${contractName} compiled successfully.`);
-      resolve(contract); // コンパイル結果を返す
+      resolve(contract); 
     });
   });
 }
 
-// コンパイル処理の実行
+
 (async () => {
   try {
     const contract = await compileContract('CypheriumBridgeTEST');
